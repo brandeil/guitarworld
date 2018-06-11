@@ -1,6 +1,6 @@
 import csv
 
-artists=[]
+transcriptions=[]
 
 with open('mags.csv') as csvfile:
     reader = csv.reader(csvfile)
@@ -12,8 +12,8 @@ with open('mags.csv') as csvfile:
         publishDate = row[3]
         filetype = row[4]
         
-        if (artistname not in artists) and (filetype == "Transcription"):
-            artists.append(artistname)
+        if filetype == "Transcription":
+            transcriptions.append("{0}-{1}-{2}-{3}".format(artistname,song,magazine,publishDate))
 
-print ("All artists:")
-print(artists)
+for x in transcriptions:
+    print(x)
